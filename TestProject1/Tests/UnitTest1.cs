@@ -12,7 +12,7 @@ using OpenQA.Selenium.Support.UI;
 // Obsolete - using OpenQA.Selenium.Support.PageObjects;
 using SeleniumExtras.PageObjects;
 using TestProject1.Src.Pages;
-using NUnit.Framework;
+
 
 namespace TestProject1
 {
@@ -31,6 +31,10 @@ namespace TestProject1
         public void init()
         {
             driver = new ChromeDriver(@"C:\Users\Александр\source\repos\PracticTestQA\TestProject1\");
+            ChromeOptions capability = new();
+            capability.AddAdditionalCapability("os", OS);
+            capability.AddAdditionalCapability("browser_version", Version);
+            capability.AddAdditionalCapability("os", OS);
         }
 
         [Test]
