@@ -19,7 +19,7 @@ namespace TestProject1
     
     public class Tests
     {
-        IWebDriver driver;
+        RemoteWebDriver driver;
         String search = "Биохимия 8 показателей";
         String title = "Гемотест Москва | Клинико-диагностическая лаборатория Гемотест";
         private String Browser;
@@ -30,11 +30,16 @@ namespace TestProject1
         [SetUp]
         public void init()
         {
-            driver = new ChromeDriver(@"C:\Users\Александр\source\repos\PracticTestQA\TestProject1\");
-            ChromeOptions capability = new();
-            capability.AddAdditionalCapability("os", OS);
-            capability.AddAdditionalCapability("browser_version", Version);
-            capability.AddAdditionalCapability("os", OS);
+            ChromeOptions options = new();
+            options.AddArgument("start-maximized"); // open Browser in maximized mode
+            options.AddArgument("disable-infobars"); // disabling infobars
+            options.AddArgument("--disable-extensions"); // disabling extensions
+            options.AddArgument("--disable-gpu"); // applicable to windows os only
+            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
+            //options.AddArgument("--no-sandbox"); // Bypass OS security model
+            driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"),options);
+
+
         }
 
         [Test]
@@ -43,6 +48,7 @@ namespace TestProject1
             String excepted = "Биохимический анализ крови - 8 показателей (венозная кровь) - сдать биохимию крови в лаборатории Гемотест по доступной цене в Москве и др. городах";
 
             StartPage start = new StartPage(driver);
+            Thread.Sleep(10000);
             start.GoToSite();
             start.search_bio(search);
 

@@ -17,11 +17,11 @@ namespace TestProject1.Src.Pages
 {
     class StartPage
     {
-        private IWebDriver driver;
+        private RemoteWebDriver driver;
         private WebDriverWait wait;
         String test_url = "https://gemotest.ru/";
 
-        public StartPage(IWebDriver driver)
+        public StartPage(RemoteWebDriver driver)
         {
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));

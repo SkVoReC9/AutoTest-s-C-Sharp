@@ -16,9 +16,9 @@ namespace TestProject1.Src.Pages
 {
     class FinalPage
     {
-        private IWebDriver driver;
+        private RemoteWebDriver driver;
 
-        public FinalPage(IWebDriver driver) 
+        public FinalPage(RemoteWebDriver driver) 
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
