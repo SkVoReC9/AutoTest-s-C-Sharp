@@ -31,14 +31,11 @@ namespace TestProject1
         public void init()
         {
             ChromeOptions options = new();
+            Dictionary<string, object> selenoidOptions = new Dictionary<string, object>();
+            selenoidOptions.Add("enableVNC", true);
+            options.AddAdditionalOption("selenoid:options", selenoidOptions);
             options.AddArgument("start-maximized"); // open Browser in maximized mode
-            options.AddArgument("disable-infobars"); // disabling infobars
-            options.AddArgument("--disable-extensions"); // disabling extensions
-            options.AddArgument("--disable-gpu"); // applicable to windows os only
-            options.AddArgument("--disable-dev-shm-usage"); // overcome limited resource problems
-            //options.AddArgument("--no-sandbox"); // Bypass OS security model
             driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"),options);
-
 
         }
 
