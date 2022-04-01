@@ -17,6 +17,7 @@ namespace TestProject1.Src.Pages
     class ResultPage
     {
         private RemoteWebDriver driver;
+        //private IWebDriver driver;
 
         public ResultPage(RemoteWebDriver driver)
         {

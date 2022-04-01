@@ -18,6 +18,7 @@ namespace TestProject1.Src.Pages
     class StartPage
     {
         private RemoteWebDriver driver;
+        //private IWebDriver driver;
         private WebDriverWait wait;
         String test_url = "https://gemotest.ru/";
 
