@@ -22,7 +22,7 @@ namespace TestProject1.Src.Pages
         private WebDriverWait wait;
         String test_url = "https://gemotest.ru/";
 
-        public StartPage(RemoteWebDriver driver)
+        public StartPage(/*IWebDriver*/RemoteWebDriver driver)
         {
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
