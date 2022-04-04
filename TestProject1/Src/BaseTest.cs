@@ -12,7 +12,7 @@ namespace TestProject1
 
     public class BaseTest
     {
-        private RemoteWebDriver driver { get; set; }
+        public RemoteWebDriver driver { get ; private set; }
         [SetUp]
         public virtual void InitDriver()
         {

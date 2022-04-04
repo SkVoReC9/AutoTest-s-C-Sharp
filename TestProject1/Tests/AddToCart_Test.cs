@@ -16,14 +16,14 @@ namespace TestProject1
         [Test]
         public void Test1()
         {
-            StartPage start = new StartPage(getDriver());
+            StartPage start = new StartPage(driver);
             start.GoToSite();
             Thread.Sleep(10000);
             start.search_bio(search);
 
-            ResultPage result = new ResultPage(getDriver());
+            ResultPage result = new ResultPage(driver);
             result.clickResult();
-            FinalPage final = new FinalPage(getDriver());
+            FinalPage final = new FinalPage(driver);
 
             final.AddToCartService();
             if(final.CheckCart())
